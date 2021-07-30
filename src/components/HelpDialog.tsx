@@ -12,7 +12,7 @@ export default function HelpDialog(props: {open: boolean, handleClose: () => voi
   >
     <DialogTitle>
       <Typography variant="h4">
-        How to use solstake?
+        How to use safestake?
       </Typography>
     </DialogTitle>
 
@@ -37,7 +37,7 @@ export default function HelpDialog(props: {open: boolean, handleClose: () => voi
         <Box m={2} />
         
         <Typography>
-          We'd love to hear from you - please send any feedback or suggestions to solstakeio@gmail.com
+          We'd love to hear from you - please send any feedback or suggestions to safe@safecoin.org
         </Typography>
       </Box>
     </DialogContent>
