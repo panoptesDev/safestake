@@ -1,4 +1,4 @@
-import { AccountInfo, Connection, InflationReward, ParsedAccountData, PublicKey, StakeProgram } from "@solana/web3.js";
+import { AccountInfo, Connection, InflationReward, ParsedAccountData, PublicKey, StakeProgram } from "@safecoin/web3.js";
 import { create } from "superstruct";
 import { StakeAccount } from "../validators/accounts/accounts";
 import { STAKE_PROGRAM_ID } from "./ids";
@@ -73,9 +73,9 @@ export async function findStakeAccountMetas(connection: Connection, walletAddres
     }
 
     // We identify accounts with the solflare seed, or natural seed only for now
-    const matchingSolflareSeed = solflareStakeAccountSeedPubkeys.find(element => element.pubkey.equals(pubkey))?.seed;
+    const matchingSafeflareSeed = solflareStakeAccountSeedPubkeys.find(element => element.pubkey.equals(pubkey))?.seed;
     const matchingNaturalSeed = naturalStakeAccountSeedPubkeys.find(element => element.pubkey.equals(pubkey))?.seed;
-    const seed = matchingSolflareSeed || matchingNaturalSeed || `${pubkey.toBase58().slice(12)}...`;
+    const seed = `${pubkey.toBase58().slice(12)}...`;
 
     const balanceLamports = account.lamports;
     newStakeAccountMetas.push({

@@ -1,5 +1,5 @@
 {
-  "name": "solstake",
+  "name": "safestake",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,7 +12,7 @@
     "@material-ui/lab": "^4.0.0-alpha.58",
     "@project-serum/sol-wallet-adapter": "^0.2.4",
     "@pythnetwork/client": "^2.0.0",
-    "@solana/web3.js": "^1.18.0",
+    "@safecoin/web3.js": "^1.*",
     "humanize-duration-ts": "^2.1.1",
     "node-sass": "5.*",
     "notistack": "^1.0.9",
@@ -28,7 +28,7 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "HTTPS=true react-scripts start",
+    "start": "HTTPS=true PORT=8443 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

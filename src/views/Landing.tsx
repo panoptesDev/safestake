@@ -5,7 +5,7 @@ import {
   Link
 } from 'react-router-dom';
 import { Box, Button, TextField, Typography, IconButton, Grid, Dialog, DialogTitle, DialogActions, DialogContent, makeStyles, Theme, createStyles, Snackbar, SvgIcon } from '@material-ui/core';
-import { ReactComponent as SolstakeLogoMainSvg } from '../assets/logo-white.svg';
+import { ReactComponent as SafestakeLogoMainSvg } from '../assets/logo-white.svg';
 import { GitHub, Send, Twitter, YouTube } from '@material-ui/icons';
 import { ReactComponent as Discord } from '../assets/discord-brands.svg';
 import { validateEmail } from '../utils/email';
@@ -89,13 +89,12 @@ export function Landing() {
             style={{minHeight: '100vh', textAlign: 'center', overflow: 'hidden'}}
           >
             <Grid item xs={8}>
-              <SolstakeLogoMainSvg />
+              <SafestakeLogoMainSvg />
               <Typography style={{visibility: 'hidden'}}>
                 Hack for non working svg scaling SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
               </Typography>
               <Typography color="primary" variant="h4">
-                Solstake makes staking on Solana easier than ever - no matter what wallet you’re using. 
-                Stake your SOL, manage accounts and earn rewards all in a single and easy-to-use app.
+                Safestake is a completely open source, non-custodial staking platform for simple straightforward staking and management of Safecoin, the world's most performant community blockchain.
               </Typography>
 
               <Box m={4} />
@@ -103,7 +102,7 @@ export function Landing() {
               <Link style={{textDecoration: 'none'}} to="/app">
                 <Button variant="contained" size="large">
                   <Typography variant="h5">
-                    Use Solstake
+                    Use Safestake
                   </Typography>
                 </Button>
               </Link>
@@ -111,54 +110,21 @@ export function Landing() {
               <Box m={4} />
 
               <Typography color="primary" variant="h5">
-                We’re just getting started around here. In the meantime stay updated on product releases, new features and more by subscribing below.
+                A huge thanks to <a href="https://solstake.io">SolStake.io</a>, the world's first open source Solana Staking platform, for making this possible.
               </Typography>
     
               <Box m={4} />
-
-              <TextField
-                label="Enter your email"
-                variant="outlined"
-                style={{width: '40%'}}
-                error={email !== '' && !isEmailValid}
-                helperText={(email !== '' && !isEmailValid) ? 'Invalid' : null}
-                onKeyDown={async (event) => {
-                  if (event.key === 'Enter') {
-                    await submitAndFeedback();
-                  }
-                }}
-                onChange={(event) => {
-                  const email = event.target.value;
-                  setEmail(email);
-
-                  const isValid = validateEmail(email);
-                  setIsEmailValid(isValid);
-                }}
-                value={email}
-                InputProps={{
-                  endAdornment: <SendButton
-                    callback={submitAndFeedback}
-                    disabled={!isEmailValid}
-                  />
-                }}
-              />
-    
               <Box m={3} />
     
               <div>
                 <IconButton
-                  href="https://github.com/rooware-io/solstake"
+                  href="https://github.com/Fair-Exchange/safestake"
                   rel="noopener noreferrer" target="_blank"
                 >
                   <GitHub style={styles.largeIcon} />
                 </IconButton>
                 <IconButton
-                  onClick={() => setOpenVideo(true)}
-                >
-                  <YouTube style={styles.largeIcon} />
-                </IconButton>
-                <IconButton
-                  href="https://discord.gg/r5fZHdfu"
+                  href="https://discord.com/invite/vQgYGJz"
                   rel="noopener noreferrer" target="_blank"
                 >
                   <SvgIcon style={styles.largeIcon}>
@@ -166,7 +132,7 @@ export function Landing() {
                   </SvgIcon>
                 </IconButton>
                 <IconButton
-                  href="https://twitter.com/solstakeio"
+                  href="https://twitter.com/safecoins"
                   rel="noopener noreferrer" target="_blank"
                 >
                   <Twitter style={styles.largeIcon} />
@@ -175,37 +141,6 @@ export function Landing() {
             </Grid>
           </Grid>
         </div>
-        <Dialog
-          title="Email sent!"
-          fullWidth={true}
-          open={open}
-          onClose={handleClose}
-        >
-          <DialogTitle>Email sent!</DialogTitle>
-          <DialogContent>
-            <Box m={1}>
-              <Typography>
-                Thank you for registering, we will get back to you when solstake is production ready
-              </Typography>
-            </Box>
-          </DialogContent>
-  
-          <DialogActions>
-            <Button onClick={handleClose} color="primary">
-              OK
-            </Button>
-          </DialogActions>
-        </Dialog>
-        <Dialog
-          open={openVideo}
-          fullWidth
-          maxWidth="md"
-          onClose={handleCloseVideo}
-        >
-          <div className="videoWrapper">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/JUDG6j5ktW4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-          </div>
-        </Dialog>
         {/* <div id="stars"></div>
         <div id="stars2"></div>
         <div id="stars3"></div> */}

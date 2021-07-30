@@ -6,7 +6,7 @@ import {
   Signer,
   Transaction,
   TransactionInstruction,
-} from "@solana/web3.js";
+} from "@safecoin/web3.js";
 import React, { useContext, useMemo } from "react";
 import { WalletAdapter } from "../wallet-adapters/walletAdapter";
 
@@ -20,11 +20,11 @@ interface Endpoint {
 export const ENDPOINTS: Endpoint[] = [
   {
     name: "mainnet-beta",
-    url: 'https://solstake.rpcpool.com',
+    url: clusterApiUrl("mainnet-beta"),
   },
   {
     name: "testnet",
-    url: 'https://solstake.testnet.rpcpool.com',
+    url: clusterApiUrl("testnet"),
   },
   {
     name: "devnet",
@@ -32,7 +32,7 @@ export const ENDPOINTS: Endpoint[] = [
   },
   {
     name: "localnet",
-    url: "http://127.0.0.1:8899",
+    url: "http://127.0.0.1:8328",
   },
 ];
 
@@ -131,7 +131,7 @@ export async function sendTransaction(
   return txid;
 };
 
-export function useSolanaExplorerUrlSuffix() {
+export function useSafecoinExplorerUrlSuffix() {
   const context = useContext(ConnectionContext);
   if (!context) {
     throw new Error('Missing connection context');

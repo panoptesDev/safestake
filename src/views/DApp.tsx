@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import '../App.css';
 import { AppBar, Box, Button, Card, CardContent, CircularProgress, Container, IconButton, Toolbar, Tooltip, Typography } from '@material-ui/core';
-import { AccountInfo, Connection, Context, KeyedAccountInfo, ParsedAccountData, PublicKey } from '@solana/web3.js';
+import { AccountInfo, Connection, Context, KeyedAccountInfo, ParsedAccountData, PublicKey } from '@safecoin/web3.js';
 import {
   Link as RouterLink
 } from 'react-router-dom';
 import { accounInfoToStakeAccount as accountInfoToStakeAccount, findStakeAccountMetas, sortStakeAccountMetas, StakeAccountMeta } from '../utils/stakeAccounts';
 import { StakeAccountCard } from '../components/StakeAccount';
-import { ReactComponent as SolstakeLogoSvg } from '../assets/logo-gradient.svg';
+import { ReactComponent as SafestakeLogoSvg } from '../assets/logo-gradient.svg';
 import { Info } from '@material-ui/icons';
 import { Connector } from '../components/Connector';
 import { useWallet } from '../contexts/wallet';
@@ -224,7 +224,7 @@ function DApp() {
         <Toolbar>
             <RouterLink to="/" style={{width: '15%'}}>
               <Box m={1}>
-                <SolstakeLogoSvg className="App-logo" />
+                <SafestakeLogoSvg className="App-logo" />
               </Box>
             </RouterLink>
             <div style={{flexGrow: 1}}></div>

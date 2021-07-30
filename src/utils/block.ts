@@ -1,4 +1,4 @@
-import { Connection } from "@solana/web3.js";
+import { Connection } from "@safecoin/web3.js";
 import { sleep } from "./utils";
 
 // Returns if 10 consecutive missing slots to avoid deadlock

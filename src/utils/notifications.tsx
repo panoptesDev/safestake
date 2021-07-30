@@ -1,8 +1,8 @@
 import { Button } from '@material-ui/core';
-import { Connection } from '@solana/web3.js';
+import { Connection } from '@safecoin/web3.js';
 import { useSnackbar } from 'notistack';
 import React, { useState } from 'react';
-import { useConnection, useSolanaExplorerUrlSuffix } from '../contexts/connection';
+import { useConnection, useSafecoinExplorerUrlSuffix } from '../contexts/connection';
 
 async function confirmTransaction(
   connection: Connection,
@@ -74,7 +74,7 @@ export function useMonitorTransaction() {
 }
 
 function ViewTransactionOnExplorerButton({ signature }: {signature: string}) {
-  const urlSuffix = useSolanaExplorerUrlSuffix();
+  const urlSuffix = useSafecoinExplorerUrlSuffix();
   return (
     <Button
       color="inherit"

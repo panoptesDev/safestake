@@ -1,4 +1,4 @@
-import { Connection, EpochInfo } from "@solana/web3.js";
+import { Connection, EpochInfo } from "@safecoin/web3.js";
 
 export interface DashboardEpochInfo {
   epochInfo: EpochInfo;

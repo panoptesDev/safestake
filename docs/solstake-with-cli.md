@@ -1,6 +1,6 @@
-# Solstake with CLI
+# Safestake with CLI
 
-Solstake uses your wallet address along with the standard seed (a number incrementing) as seed to find the program derived address of each stake account
+Safestake uses your wallet address along with the standard seed (a number incrementing) as seed to find the program derived address of each stake account
 
 As a result, you can explore and interact with stake accounts in solstake and in the CLI effortlessly.
 

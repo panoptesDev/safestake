@@ -1,4 +1,4 @@
-import { Connection, PublicKey, ValidatorInfo, VoteAccountInfo } from "@solana/web3.js";
+import { Connection, PublicKey, ValidatorInfo, VoteAccountInfo } from "@safecoin/web3.js";
 import { createContext, useEffect, useState } from "react";
 import { ValidatorScore } from "../utils/validatorsApp";
 import { useConnection, useConnectionConfig } from "./connection";

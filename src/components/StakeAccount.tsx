@@ -1,9 +1,9 @@
 import { Box, Button, Card, CardActions, CardContent, CircularProgress, Collapse, Dialog, DialogActions, DialogContent, DialogTitle, InputAdornment, Link, List, ListItem, ListItemText, TextField, Tooltip, Typography } from "@material-ui/core";
 import { ExpandLess, ExpandMore, OpenInNew } from "@material-ui/icons";
-import { LAMPORTS_PER_SOL, PublicKey, StakeActivationData, StakeProgram } from "@solana/web3.js";
+import { LAMPORTS_PER_SAFE, PublicKey, StakeActivationData, StakeProgram } from "@safecoin/web3.js";
 import BN from "bn.js";
 import React, { useContext, useEffect, useMemo, useState } from "react";
-import { sendTransaction, useConnection, useSendConnection, useSolanaExplorerUrlSuffix } from "../contexts/connection";
+import { sendTransaction, useConnection, useSendConnection, useSafecoinExplorerUrlSuffix } from "../contexts/connection";
 import { EpochContext } from "../contexts/epoch";
 import { useWallet } from "../contexts/wallet";
 import { getFirstBlockTime } from "../utils/block";
@@ -20,7 +20,7 @@ export function StakeAccountCard({stakeAccountMeta}: {stakeAccountMeta: StakeAcc
   const sendConnection = useSendConnection();
   const {wallet, connected} = useWallet();
   const {monitorTransaction} = useMonitorTransaction();
-  const urlSuffix = useSolanaExplorerUrlSuffix();
+  const urlSuffix = useSafecoinExplorerUrlSuffix();
   const { epochSchedule, epochStartTime } = useContext(EpochContext);
 
   const [rewardsOpen, setRewardsOpen] = useState(false);
@@ -81,7 +81,7 @@ export function StakeAccountCard({stakeAccountMeta}: {stakeAccountMeta: StakeAcc
             Seed: {stakeAccountMeta.seed}
           </Typography>
           <Typography variant="h6" component="h2">
-            {`Balance: ${stakeAccountMeta.lamports / LAMPORTS_PER_SOL} SOL`} 
+            {`Balance: ${stakeAccountMeta.lamports / LAMPORTS_PER_SAFE} SAFE`} 
           </Typography>
           <Typography color="textSecondary">
             Type: {stakeAccountMeta.stakeAccount.type}
@@ -98,14 +98,14 @@ export function StakeAccountCard({stakeAccountMeta}: {stakeAccountMeta: StakeAcc
           </Typography>
 
           <Button onClick={() => setRewardsOpen(!rewardsOpen)}>
-            Rewards {totalRewards / LAMPORTS_PER_SOL} SOL, {(APY && formatPct.format(APY)) || '-'} APY
+            Rewards {totalRewards / LAMPORTS_PER_SAFE} SAFE, {(APY && formatPct.format(APY)) || '-'} APY
             {rewardsOpen ? <ExpandLess /> : <ExpandMore />}
           </Button>
           <Collapse in={rewardsOpen} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
               {stakeAccountMeta.inflationRewards.map(inflationReward => (
               <ListItem style={{paddingLeft: 4}} key={inflationReward.epoch}>
-                <ListItemText primary={`Epoch: ${inflationReward.epoch}, reward: ${inflationReward.amount / LAMPORTS_PER_SOL} SOL`} />
+                <ListItemText primary={`Epoch: ${inflationReward.epoch}, reward: ${inflationReward.amount / LAMPORTS_PER_SAFE} SAFE`} />
               </ListItem>
               ))}
             </List>
@@ -221,7 +221,7 @@ function WithdrawDialog({wallet, userPublicKey, stakePubkey, stakeAccountLamport
 
   const [amount, setAmount] = useState('');
   const max = useMemo(() => {
-    return stakeAccountLamports / LAMPORTS_PER_SOL;
+    return stakeAccountLamports / LAMPORTS_PER_SAFE;
   }, [stakeAccountLamports]);
 
   return (
@@ -234,7 +234,7 @@ function WithdrawDialog({wallet, userPublicKey, stakePubkey, stakeAccountLamport
       </DialogTitle>
       <DialogContent>
         <TextField
-          placeholder="SOL"
+          placeholder="SAFE"
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
@@ -245,7 +245,7 @@ function WithdrawDialog({wallet, userPublicKey, stakePubkey, stakeAccountLamport
                 >
                   MAX
                 </Button>
-                SOL
+                SAFE
               </InputAdornment>
             ),
             inputProps: {
@@ -271,7 +271,7 @@ function WithdrawDialog({wallet, userPublicKey, stakePubkey, stakeAccountLamport
                   stakePubkey,
                   authorizedPubkey: userPublicKey,
                   toPubkey: userPublicKey,
-                  lamports: Number(amount) * LAMPORTS_PER_SOL,
+                  lamports: Number(amount) * LAMPORTS_PER_SAFE,
                 }).instructions,
                 []
               ),

@@ -1,6 +1,6 @@
 import { WalletAdapter } from "../walletAdapter";
 import EventEmitter from 'eventemitter3'
-import { PublicKey, Transaction } from '@solana/web3.js'
+import { PublicKey, Transaction } from '@safecoin/web3.js'
 import { notify } from "../../utils/notifications";
 
 type PhantomEvent = 'disconnect' | 'connect'

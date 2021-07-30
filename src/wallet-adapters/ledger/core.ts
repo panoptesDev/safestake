@@ -1,7 +1,7 @@
 import type Transport from "@ledgerhq/hw-transport";
-import type { Transaction } from "@solana/web3.js";
+import type { Transaction } from "@safecoin/web3.js";
 
-import { PublicKey } from "@solana/web3.js";
+import { PublicKey } from "@safecoin/web3.js";
 
 const INS_GET_PUBKEY = 0x05;
 const INS_SIGN_MESSAGE = 0x06;
@@ -64,7 +64,7 @@ function harden(n: number = 0) {
   return (n | BIP32_HARDENED_BIT) >>> 0;
 }
 
-export function getSolanaDerivationPath(account?: number, change?: number) {
+export function getSafecoinDerivationPath(account?: number, change?: number) {
   var length;
   if (account !== undefined) {
     if (change !== undefined) {
@@ -81,7 +81,7 @@ export function getSolanaDerivationPath(account?: number, change?: number) {
   var offset = 0;
   offset = derivationPath.writeUInt8(length, offset);
   offset = derivationPath.writeUInt32BE(harden(44), offset); // Using BIP44
-  offset = derivationPath.writeUInt32BE(harden(501), offset); // Solana's BIP44 path
+  offset = derivationPath.writeUInt32BE(harden(501), offset); // Safecoin's BIP44 path
 
   if (length > 2) {
     offset = derivationPath.writeUInt32BE(harden(account), offset);
@@ -97,7 +97,7 @@ export function getSolanaDerivationPath(account?: number, change?: number) {
 export async function signTransaction(
   transport: Transport,
   transaction: Transaction,
-  derivationPath: Buffer = getSolanaDerivationPath()
+  derivationPath: Buffer = getSafecoinDerivationPath()
 ) {
   const messageBytes = transaction.serializeMessage();
   return signBytes(transport, messageBytes, derivationPath);
@@ -106,21 +106,21 @@ export async function signTransaction(
 export async function signBytes(
   transport: Transport,
   bytes: Buffer,
-  derivationPath: Buffer = getSolanaDerivationPath()
+  derivationPath: Buffer = getSafecoinDerivationPath()
 ) {
   const numPaths = Buffer.alloc(1);
   numPaths.writeUInt8(1, 0);
 
   const payload = Buffer.concat([numPaths, derivationPath, bytes]);
 
-  // @FIXME: must enable blind signing in Solana Ledger App per https://github.com/project-serum/spl-token-wallet/issues/71
+  // @FIXME: must enable blind signing in Safecoin Ledger App per https://github.com/project-serum/spl-token-wallet/issues/71
   // See also https://github.com/project-serum/spl-token-wallet/pull/23#issuecomment-712317053
   return ledgerSend(transport, INS_SIGN_MESSAGE, P1_CONFIRM, payload);
 }
 
 export async function getPublicKey(
   transport: Transport,
-  derivationPath: Buffer = getSolanaDerivationPath()
+  derivationPath: Buffer = getSafecoinDerivationPath()
 ) {
   const publicKeyBytes = await ledgerSend(
     transport,

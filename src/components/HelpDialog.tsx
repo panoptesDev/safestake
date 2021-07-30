@@ -22,7 +22,7 @@ export default function HelpDialog(props: {open: boolean, handleClose: () => voi
           Enter you wallet public key (Stake account authority) or connect your wallet to view your stake accounts, balances, rewards and much more
         </Typography>
         <Typography>
-          For in-depth staking documentation about solana staking head to <Link color="secondary" href="https://docs.solana.com/staking" target="_blank">Solana staking documentation</Link>
+          For in-depth staking documentation about solana staking head to <Link color="secondary" href="https://docs.solana.com/staking" target="_blank">Safecoin staking documentation</Link>
         </Typography>
 
         <Box m={2} />

@@ -1,10 +1,10 @@
 # How to choose a validator
 
-Disclaimer: There is no validator affiliated with Solstake and Solstake
+Disclaimer: There is no validator affiliated with Safestake and Safestake
 
 Quote of solana-labs doc:
 
-"After you have received SOL, you might consider putting it to use by delegating stake to a validator. Stake is what we call tokens in a stake account. Solana weights validator votes by the amount of stake delegated to them, which gives those validators more influence in determining then next valid block of transactions in the blockchain. Solana then generates new SOL periodically to reward stakers and validators. You earn more rewards the more stake you delegate."
+"After you have received SAFE, you might consider putting it to use by delegating stake to a validator. Stake is what we call tokens in a stake account. Safecoin weights validator votes by the amount of stake delegated to them, which gives those validators more influence in determining then next valid block of transactions in the blockchain. Safecoin then generates new SAFE periodically to reward stakers and validators. You earn more rewards the more stake you delegate."
 
 Factors:
 - Yield, how close to the best return the validator is offering. At the moment the best performance is much lower than the inflation. This comprises the validator reliability and performance.
@@ -12,6 +12,6 @@ Factors:
 - ...
 
 There are several third party websites that can help you evaluate a validator
-- https://validators.app Raw metrics as well as the "score" Solstake is using
+- https://validators.app Raw metrics as well as the "score" Safestake is using
 - https://stakeview.app Current APY, and past epochs APY of staking rewards
 - https://metrics.stakeconomy.com per validator dashboard, if you are ready to dive into low level, for validator publishing their data to it.

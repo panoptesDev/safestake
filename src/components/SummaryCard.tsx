@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
 import { Card, CardContent, LinearProgress, Typography, TextField, Box, Divider, Tooltip, Button, Grid } from "@material-ui/core";
-import { clusterApiUrl, Connection, LAMPORTS_PER_SOL, PublicKey } from "@solana/web3.js";
+import { clusterApiUrl, Connection, LAMPORTS_PER_SAFE, PublicKey } from "@safecoin/web3.js";
 import { formatPct, formatPriceNumber, humanizeDuration } from "../utils/utils";
 import { parsePriceData } from '@pythnetwork/client';
 import { StakeAccountMeta } from "../utils/stakeAccounts";
@@ -19,19 +19,19 @@ interface SummaryCardProps {
   addStakeAccount: (stakePubkey: PublicKey, seed: string) => void;
 }
 
-async function getSOLPriceUSD(): Promise<number | undefined> {
+async function getSAFEPriceUSD(): Promise<number | undefined> {
   // TODO: Switch to mainnet when available
-  const connection = new Connection(clusterApiUrl('devnet'));
+//  const connection = new Connection(clusterApiUrl('devnet'));
 
-  const SOLUSDPriceAccountKey = new PublicKey('J83w4HKfqxwcq3BEMMkPFSppX3gqekLyLJBexebFVkix');
-  const priceAccountInfo = await connection.getAccountInfo(SOLUSDPriceAccountKey);
-  if (!priceAccountInfo) {
+//  const SAFEUSDPriceAccountKey = new PublicKey('J83w4HKfqxwcq3BEMMkPFSppX3gqekLyLJBexebFVkix');
+//  const priceAccountInfo = await connection.getAccountInfo(SAFEUSDPriceAccountKey);
+//  if (!priceAccountInfo) {
     return;
-  }
-  const { price, confidence } = parsePriceData(priceAccountInfo?.data);
+//  }
+//  const { price, confidence } = parsePriceData(priceAccountInfo?.data);
 
-  console.log(`price: ${price}, confidence: ${confidence}`);
-  return price;
+//  console.log(`price: ${price}, confidence: ${confidence}`);
+//  return price;
 }
 
 async function findFirstAvailableSeed(userPublicKey: PublicKey, stakeAccountMetas: StakeAccountMeta[]) {
@@ -56,7 +56,7 @@ export function SummaryCard(props : SummaryCardProps) {
   
   const {systemProgramAccountInfo} = useContext(AccountsContext);
   const [errorInfo, setErrorInfo] = useState<string | null>(null);
-  const [SOLPriceUSD, setSOLPriceUSD] = useState<number>();
+  const [SAFEPriceUSD, setSAFEPriceUSD] = useState<number>();
   const [dashboardEpochInfo, setDashboardEpochInfo] = useState<DashboardEpochInfo | null>();
   const [seed, setSeed] = useState('0');
   const [open, setOpen] = useState(false);
@@ -75,8 +75,8 @@ export function SummaryCard(props : SummaryCardProps) {
   }, [connection]);
 
   useEffect(() => {
-    getSOLPriceUSD()
-      .then(setSOLPriceUSD);
+    getSAFEPriceUSD()
+      .then(setSAFEPriceUSD);
   }, []);
 
   useEffect(() => {
@@ -97,9 +97,9 @@ export function SummaryCard(props : SummaryCardProps) {
     }
   }, [publicKeyString, setPublicKey]);
 
-  const totalStakedSOL = useMemo(() => {
+  const totalStakedSAFE = useMemo(() => {
     const totalLamports = stakeAccountMetas?.reduce((sum, current) => sum + current.lamports, 0);
-    return totalLamports ? totalLamports / LAMPORTS_PER_SOL: 0;
+    return totalLamports ? totalLamports / LAMPORTS_PER_SAFE: 0;
   }, [stakeAccountMetas]);
 
   // Yield first seed sequentially from unused seeds
@@ -169,13 +169,13 @@ export function SummaryCard(props : SummaryCardProps) {
                   Total staked
                 </Typography>
                 <Typography>
-                ≈{formatPriceNumber.format(totalStakedSOL)} SOL ({SOLPriceUSD && formatPriceNumber.format(totalStakedSOL * SOLPriceUSD)} USD)
+                ≈{formatPriceNumber.format(totalStakedSAFE)} SAFE ({SAFEPriceUSD && formatPriceNumber.format(totalStakedSAFE * SAFEPriceUSD)} USD)
                 </Typography>
               </>
             )}
             <Typography>
-              SOL {SOLPriceUSD ? formatPriceNumber.format(SOLPriceUSD) : '-'} $&nbsp;
-              <Tooltip title="On-chain SOL price from pyth.network oracle">
+              SAFE {SAFEPriceUSD ? formatPriceNumber.format(SAFEPriceUSD) : '-'} $&nbsp;
+              <Tooltip title="On-chain SAFE price from pyth.network oracle">
                 <img style={{display: 'inline', verticalAlign: 'middle'}} height="25px" src="pyth-icon-48x48.png" alt="PythNetwork" />
               </Tooltip>
             </Typography>
@@ -189,7 +189,7 @@ export function SummaryCard(props : SummaryCardProps) {
                 Account balance
               </Typography>
               <Typography>
-                {systemProgramAccountInfo.lamports / LAMPORTS_PER_SOL} SOL
+                {systemProgramAccountInfo.lamports / LAMPORTS_PER_SAFE} SAFE
               </Typography>
               <Button
                 variant="outlined"

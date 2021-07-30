@@ -1,4 +1,4 @@
-import { EpochInfo, EpochSchedule } from "@solana/web3.js";
+import { EpochInfo, EpochSchedule } from "@safecoin/web3.js";
 import React, { useEffect, useState } from "react";
 import { getFirstBlockTime } from "../utils/block";
 import { useConnection } from "./connection";
