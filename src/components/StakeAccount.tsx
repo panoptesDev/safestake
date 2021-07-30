@@ -113,7 +113,7 @@ export function StakeAccountCard({stakeAccountMeta}: {stakeAccountMeta: StakeAcc
         </CardContent>
 
         <CardActions>
-          <Link color="secondary" href={`https://explorer.solana.com/address/${stakeAccountMeta.address.toBase58()}${urlSuffix}`} rel="noopener noreferrer" target="_blank">
+          <Link color="secondary" href={`https://explorer.safecoin.org/address/${stakeAccountMeta.address.toBase58()}${urlSuffix}`} rel="noopener noreferrer" target="_blank">
             <OpenInNew />
           </Link>
           <Tooltip

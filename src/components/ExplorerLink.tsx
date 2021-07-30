@@ -25,7 +25,7 @@ export function ExplorerLink(props: {
 
   return (
     <a
-      href={`https://explorer.solana.com/${type}/${address}`}
+      href={`https://explorer.safecoin.org/${type}/${address}`}
       title={address}
       style={props.style}
     >

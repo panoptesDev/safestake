@@ -7,7 +7,7 @@ export interface DashboardEpochInfo {
 }
 
 export async function getDashboardEpochInfo(connection: Connection) : Promise<DashboardEpochInfo> {
-  // Inspired from explorer.solana.com DashboardInfo
+  // Inspired from explorer.safecoin.org DashboardInfo
   const epochInfo = await connection.getEpochInfo();
   const {slotIndex, slotsInEpoch} =  epochInfo;
 

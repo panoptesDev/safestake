@@ -81,7 +81,7 @@ function ViewTransactionOnExplorerButton({ signature }: {signature: string}) {
       component="a"
       target="_blank"
       rel="noopener"
-      href={`https://explorer.solana.com/tx/${signature}` + urlSuffix}
+      href={`https://explorer.safecoin.org/tx/${signature}` + urlSuffix}
     >
       View on Explorer
     </Button>

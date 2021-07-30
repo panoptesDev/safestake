@@ -272,7 +272,7 @@ export function DelegateDialog(props: {stakePubkey: PublicKey, open: boolean, ha
                     return (
                       <div>
                         <Typography>
-                          <Link color="secondary" href={`https://explorer.solana.com/address/${props.cellData.votePubkey}${urlSuffix}`} rel="noopener noreferrer" target="_blank">
+                          <Link color="secondary" href={`https://explorer.safecoin.org/address/${props.cellData.votePubkey}${urlSuffix}`} rel="noopener noreferrer" target="_blank">
                             {props.cellData.name ? props.cellData.name : shortenAddress(props.cellData.votePubkey, 6)}
                           </Link>
                         </Typography>
