@@ -118,7 +118,7 @@ export function Landing() {
     
               <div>
                 <IconButton
-                  href="https://github.com/Fair-Exchange/safestake"
+                  href="https://github.com/Fair-Exchange/panostake"
                   rel="noopener noreferrer" target="_blank"
                 >
                   <GitHub style={styles.largeIcon} />

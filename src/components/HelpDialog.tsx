@@ -12,7 +12,7 @@ export default function HelpDialog(props: {open: boolean, handleClose: () => voi
   >
     <DialogTitle>
       <Typography variant="h4">
-        How to use safestake?
+        How to use panostake?
       </Typography>
     </DialogTitle>
 
