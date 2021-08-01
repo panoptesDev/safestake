@@ -1,4 +1,4 @@
-import { AccountInfo, Connection, InflationReward, ParsedAccountData, PublicKey, StakeProgram } from "@safecoin/web3.js";
+import { AccountInfo, Connection, InflationReward, ParsedAccountData, PublicKey, StakeProgram } from "@panoptis/web3.js";
 import { create } from "superstruct";
 import { StakeAccount } from "../validators/accounts/accounts";
 import { STAKE_PROGRAM_ID } from "./ids";

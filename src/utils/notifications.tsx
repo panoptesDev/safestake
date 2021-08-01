@@ -1,5 +1,5 @@
 import { Button } from '@material-ui/core';
-import { Connection } from '@safecoin/web3.js';
+import { Connection } from '@panoptis/web3.js';
 import { useSnackbar } from 'notistack';
 import React, { useState } from 'react';
 import { useConnection, useSafecoinExplorerUrlSuffix } from '../contexts/connection';

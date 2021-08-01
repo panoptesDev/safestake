@@ -1,6 +1,6 @@
 import { Box, Button, Card, CardActions, CardContent, CircularProgress, Collapse, Dialog, DialogActions, DialogContent, DialogTitle, InputAdornment, Link, List, ListItem, ListItemText, TextField, Tooltip, Typography } from "@material-ui/core";
 import { ExpandLess, ExpandMore, OpenInNew } from "@material-ui/icons";
-import { LAMPORTS_PER_PANO, PublicKey, StakeActivationData, StakeProgram } from "@safecoin/web3.js";
+import { LAMPORTS_PER_PANO, PublicKey, StakeActivationData, StakeProgram } from "@panoptis/web3.js";
 import BN from "bn.js";
 import React, { useContext, useEffect, useMemo, useState } from "react";
 import { sendTransaction, useConnection, useSendConnection, useSafecoinExplorerUrlSuffix } from "../contexts/connection";

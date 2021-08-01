@@ -1,8 +1,8 @@
 import type Transport from "@ledgerhq/hw-transport";
-import type { Transaction } from "@safecoin/web3.js";
+import type { Transaction } from "@panoptis/web3.js";
 
 import EventEmitter from "eventemitter3";
-import { PublicKey } from "@safecoin/web3.js";
+import { PublicKey } from "@panoptis/web3.js";
 import TransportWebHID from "@ledgerhq/hw-transport-webhid";
 import { WalletAdapter } from "../walletAdapter";
 import { notify } from "../../utils/notifications";

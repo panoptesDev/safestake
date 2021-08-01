@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
 import { Card, CardContent, LinearProgress, Typography, TextField, Box, Divider, Tooltip, Button, Grid } from "@material-ui/core";
-import { clusterApiUrl, Connection, LAMPORTS_PER_PANO, PublicKey } from "@safecoin/web3.js";
+import { clusterApiUrl, Connection, LAMPORTS_PER_PANO, PublicKey } from "@panoptis/web3.js";
 import { formatPct, formatPriceNumber, humanizeDuration } from "../utils/utils";
 import { parsePriceData } from '@pythnetwork/client';
 import { StakeAccountMeta } from "../utils/stakeAccounts";

@@ -1,5 +1,5 @@
 import { Button, CircularProgress, Dialog, DialogActions, DialogContent, DialogTitle, InputAdornment, TextField, Typography } from "@material-ui/core";
-import { Authorized, Connection, LAMPORTS_PER_PANO, PublicKey, StakeProgram } from "@safecoin/web3.js";
+import { Authorized, Connection, LAMPORTS_PER_PANO, PublicKey, StakeProgram } from "@panoptis/web3.js";
 import { useContext, useEffect, useState } from "react";
 import { AccountsContext } from "../contexts/accounts";
 import { sendTransaction } from "../contexts/connection";

@@ -1714,9 +1714,9 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
-"@safecoin/web3.js@^1.*":
+"@panoptis/web3.js@^1.*":
   version "1.22.7"
-  resolved "https://registry.yarnpkg.com/@safecoin/web3.js/-/web3.js-1.22.7.tgz#544d1949ced58823811044c96f9eafe6629783f2"
+  resolved "https://registry.yarnpkg.com/@panoptis/web3.js/-/web3.js-1.22.7.tgz#544d1949ced58823811044c96f9eafe6629783f2"
   integrity sha512-7z+s40wa5duOawN/pQ/XBzNNl00hpZgdvjIhCqIo8TnypgVjV9lX/aJvCc3s8TjHL5rMWpkL0hn78fRbz+Cj7g==
   dependencies:
     "@babel/runtime" "^7.12.5"

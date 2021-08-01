@@ -37,7 +37,7 @@ export default function HelpDialog(props: {open: boolean, handleClose: () => voi
         <Box m={2} />
         
         <Typography>
-          We'd love to hear from you - please send any feedback or suggestions to safe@safecoin.org
+          We'd love to hear from you - please send any feedback or suggestions to safe@panoptis.org
         </Typography>
       </Box>
     </DialogContent>
