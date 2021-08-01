@@ -1,6 +1,6 @@
 # How to choose a validator
 
-Disclaimer: There is no validator affiliated with Safestake and Safestake
+Disclaimer: There is no validator affiliated with Panostake and Panostake
 
 Quote of solana-labs doc:
 
@@ -12,6 +12,6 @@ Factors:
 - ...
 
 There are several third party websites that can help you evaluate a validator
-- https://validators.app Raw metrics as well as the "score" Safestake is using
+- https://validators.app Raw metrics as well as the "score" Panostake is using
 - https://stakeview.app Current APY, and past epochs APY of staking rewards
 - https://metrics.stakeconomy.com per validator dashboard, if you are ready to dive into low level, for validator publishing their data to it.

@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import { accounInfoToStakeAccount as accountInfoToStakeAccount, findStakeAccountMetas, sortStakeAccountMetas, StakeAccountMeta } from '../utils/stakeAccounts';
 import { StakeAccountCard } from '../components/StakeAccount';
-import { ReactComponent as SafestakeLogoSvg } from '../assets/logo-gradient.svg';
+import { ReactComponent as PanostakeLogoSvg } from '../assets/logo-gradient.svg';
 import { Info } from '@material-ui/icons';
 import { Connector } from '../components/Connector';
 import { useWallet } from '../contexts/wallet';
@@ -224,7 +224,7 @@ function DApp() {
         <Toolbar>
             <RouterLink to="/" style={{width: '15%'}}>
               <Box m={1}>
-                <SafestakeLogoSvg className="App-logo" />
+                <PanostakeLogoSvg className="App-logo" />
               </Box>
             </RouterLink>
             <div style={{flexGrow: 1}}></div>

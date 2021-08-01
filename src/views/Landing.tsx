@@ -5,7 +5,7 @@ import {
   Link
 } from 'react-router-dom';
 import { Box, Button, TextField, Typography, IconButton, Grid, Dialog, DialogTitle, DialogActions, DialogContent, makeStyles, Theme, createStyles, Snackbar, SvgIcon } from '@material-ui/core';
-import { ReactComponent as SafestakeLogoMainSvg } from '../assets/logo-white.svg';
+import { ReactComponent as PanostakeLogoMainSvg } from '../assets/logo-white.svg';
 import { GitHub, Send, Twitter, YouTube } from '@material-ui/icons';
 import { ReactComponent as Discord } from '../assets/discord-brands.svg';
 import { validateEmail } from '../utils/email';
@@ -89,12 +89,12 @@ export function Landing() {
             style={{minHeight: '100vh', textAlign: 'center', overflow: 'hidden'}}
           >
             <Grid item xs={8}>
-              <SafestakeLogoMainSvg />
+              <PanostakeLogoMainSvg />
               <Typography style={{visibility: 'hidden'}}>
                 Hack for non working svg scaling SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
               </Typography>
               <Typography color="primary" variant="h4">
-                Safestake is a completely open source, non-custodial staking platform for simple straightforward staking and management of Safecoin, the world's most performant community blockchain.
+                Panostake is a completely open source, non-custodial staking platform for simple straightforward staking and management of Safecoin, the world's most performant community blockchain.
               </Typography>
 
               <Box m={4} />
@@ -102,7 +102,7 @@ export function Landing() {
               <Link style={{textDecoration: 'none'}} to="/app">
                 <Button variant="contained" size="large">
                   <Typography variant="h5">
-                    Use Safestake
+                    Use Panostake
                   </Typography>
                 </Button>
               </Link>
