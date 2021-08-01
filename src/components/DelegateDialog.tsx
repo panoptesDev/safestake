@@ -2,7 +2,7 @@ import 'react-virtualized/styles.css';
 import AutoSizer from 'react-virtualized/dist/commonjs/AutoSizer';
 import React, { useContext, useEffect, useState } from "react";
 import { sendTransaction, useSendConnection, useSafecoinExplorerUrlSuffix } from "../contexts/connection";
-import { LAMPORTS_PER_SAFE, PublicKey, StakeProgram, ValidatorInfo, VoteAccountInfo } from "@safecoin/web3.js";
+import { LAMPORTS_PER_PANO, PublicKey, StakeProgram, ValidatorInfo, VoteAccountInfo } from "@safecoin/web3.js";
 import { Button, Typography, Dialog, DialogActions, DialogContent, DialogTitle, Slider, TextField, Link, Box, CircularProgress, InputAdornment } from '@material-ui/core';
 import { useWallet } from '../contexts/wallet';
 import { useMonitorTransaction } from '../utils/notifications';
@@ -281,10 +281,10 @@ export function DelegateDialog(props: {stakePubkey: PublicKey, open: boolean, ha
                   }}
                 />
                 <Column
-                  label="Stake (SAFE)"
+                  label="Stake (PANO)"
                   dataKey="activatedStake"
                   headerRenderer={basicHeaderRenderer} cellRenderer={basicCellRenderer}
-                  cellDataGetter={({rowData}) => `${formatPriceNumber.format(rowData.voteAccountInfo.activatedStake / LAMPORTS_PER_SAFE)} (${formatPct.format(rowData.voteAccountInfo.activatedStake / totalActivatedStake)})`}
+                  cellDataGetter={({rowData}) => `${formatPriceNumber.format(rowData.voteAccountInfo.activatedStake / LAMPORTS_PER_PANO)} (${formatPct.format(rowData.voteAccountInfo.activatedStake / totalActivatedStake)})`}
                   width={180}
                 />
                 <Column

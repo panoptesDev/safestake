@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
 import { Card, CardContent, LinearProgress, Typography, TextField, Box, Divider, Tooltip, Button, Grid } from "@material-ui/core";
-import { clusterApiUrl, Connection, LAMPORTS_PER_SAFE, PublicKey } from "@safecoin/web3.js";
+import { clusterApiUrl, Connection, LAMPORTS_PER_PANO, PublicKey } from "@safecoin/web3.js";
 import { formatPct, formatPriceNumber, humanizeDuration } from "../utils/utils";
 import { parsePriceData } from '@pythnetwork/client';
 import { StakeAccountMeta } from "../utils/stakeAccounts";
@@ -19,12 +19,12 @@ interface SummaryCardProps {
   addStakeAccount: (stakePubkey: PublicKey, seed: string) => void;
 }
 
-async function getSAFEPriceUSD(): Promise<number | undefined> {
+async function getPANOPriceUSD(): Promise<number | undefined> {
   // TODO: Switch to mainnet when available
 //  const connection = new Connection(clusterApiUrl('devnet'));
 
-//  const SAFEUSDPriceAccountKey = new PublicKey('J83w4HKfqxwcq3BEMMkPFSppX3gqekLyLJBexebFVkix');
-//  const priceAccountInfo = await connection.getAccountInfo(SAFEUSDPriceAccountKey);
+//  const PANOUSDPriceAccountKey = new PublicKey('J83w4HKfqxwcq3BEMMkPFSppX3gqekLyLJBexebFVkix');
+//  const priceAccountInfo = await connection.getAccountInfo(PANOUSDPriceAccountKey);
 //  if (!priceAccountInfo) {
     return;
 //  }
@@ -56,7 +56,7 @@ export function SummaryCard(props : SummaryCardProps) {
   
   const {systemProgramAccountInfo} = useContext(AccountsContext);
   const [errorInfo, setErrorInfo] = useState<string | null>(null);
-  const [SAFEPriceUSD, setSAFEPriceUSD] = useState<number>();
+  const [PANOPriceUSD, setPANOPriceUSD] = useState<number>();
   const [dashboardEpochInfo, setDashboardEpochInfo] = useState<DashboardEpochInfo | null>();
   const [seed, setSeed] = useState('0');
   const [open, setOpen] = useState(false);
@@ -75,8 +75,8 @@ export function SummaryCard(props : SummaryCardProps) {
   }, [connection]);
 
   useEffect(() => {
-    getSAFEPriceUSD()
-      .then(setSAFEPriceUSD);
+    getPANOPriceUSD()
+      .then(setPANOPriceUSD);
   }, []);
 
   useEffect(() => {
@@ -97,9 +97,9 @@ export function SummaryCard(props : SummaryCardProps) {
     }
   }, [publicKeyString, setPublicKey]);
 
-  const totalStakedSAFE = useMemo(() => {
+  const totalStakedPANO = useMemo(() => {
     const totalLamports = stakeAccountMetas?.reduce((sum, current) => sum + current.lamports, 0);
-    return totalLamports ? totalLamports / LAMPORTS_PER_SAFE: 0;
+    return totalLamports ? totalLamports / LAMPORTS_PER_PANO: 0;
   }, [stakeAccountMetas]);
 
   // Yield first seed sequentially from unused seeds
@@ -169,13 +169,13 @@ export function SummaryCard(props : SummaryCardProps) {
                   Total staked
                 </Typography>
                 <Typography>
-                ≈{formatPriceNumber.format(totalStakedSAFE)} SAFE ({SAFEPriceUSD && formatPriceNumber.format(totalStakedSAFE * SAFEPriceUSD)} USD)
+                ≈{formatPriceNumber.format(totalStakedPANO)} PANO ({PANOPriceUSD && formatPriceNumber.format(totalStakedPANO * PANOPriceUSD)} USD)
                 </Typography>
               </>
             )}
             <Typography>
-              SAFE {SAFEPriceUSD ? formatPriceNumber.format(SAFEPriceUSD) : '-'} $&nbsp;
-              <Tooltip title="On-chain SAFE price from pyth.network oracle">
+              PANO {PANOPriceUSD ? formatPriceNumber.format(PANOPriceUSD) : '-'} $&nbsp;
+              <Tooltip title="On-chain PANO price from pyth.network oracle">
                 <img style={{display: 'inline', verticalAlign: 'middle'}} height="25px" src="pyth-icon-48x48.png" alt="PythNetwork" />
               </Tooltip>
             </Typography>
@@ -189,7 +189,7 @@ export function SummaryCard(props : SummaryCardProps) {
                 Account balance
               </Typography>
               <Typography>
-                {systemProgramAccountInfo.lamports / LAMPORTS_PER_SAFE} SAFE
+                {systemProgramAccountInfo.lamports / LAMPORTS_PER_PANO} PANO
               </Typography>
               <Button
                 variant="outlined"

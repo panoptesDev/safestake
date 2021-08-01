@@ -2,7 +2,7 @@
 
 [![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/bukotsunikki.svg?style=social&label=Follow%20%40PanostakeIO)](https://twitter.com/PanostakeIO)
 
-Panostake is an open-source and Non-custodial interface that makes staking SAFE effortless
+Panostake is an open-source and Non-custodial interface that makes staking PANO effortless
 
 [Google slide presentation](https://docs.google.com/presentation/d/1e-Ybs4T5sbo9YrRjl-CbmNQ9M6p32gntnqdXDMnSzeo/edit#slide=id.p)
 

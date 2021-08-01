@@ -4,7 +4,7 @@ Disclaimer: There is no validator affiliated with Panostake and Panostake
 
 Quote of solana-labs doc:
 
-"After you have received SAFE, you might consider putting it to use by delegating stake to a validator. Stake is what we call tokens in a stake account. Safecoin weights validator votes by the amount of stake delegated to them, which gives those validators more influence in determining then next valid block of transactions in the blockchain. Safecoin then generates new SAFE periodically to reward stakers and validators. You earn more rewards the more stake you delegate."
+"After you have received PANO, you might consider putting it to use by delegating stake to a validator. Stake is what we call tokens in a stake account. Safecoin weights validator votes by the amount of stake delegated to them, which gives those validators more influence in determining then next valid block of transactions in the blockchain. Safecoin then generates new PANO periodically to reward stakers and validators. You earn more rewards the more stake you delegate."
 
 Factors:
 - Yield, how close to the best return the validator is offering. At the moment the best performance is much lower than the inflation. This comprises the validator reliability and performance.

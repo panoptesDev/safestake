@@ -1,5 +1,5 @@
 import { Button, CircularProgress, Dialog, DialogActions, DialogContent, DialogTitle, InputAdornment, TextField, Typography } from "@material-ui/core";
-import { Authorized, Connection, LAMPORTS_PER_SAFE, PublicKey, StakeProgram } from "@safecoin/web3.js";
+import { Authorized, Connection, LAMPORTS_PER_PANO, PublicKey, StakeProgram } from "@safecoin/web3.js";
 import { useContext, useEffect, useState } from "react";
 import { AccountsContext } from "../contexts/accounts";
 import { sendTransaction } from "../contexts/connection";
@@ -24,8 +24,8 @@ export function CreateStakeAccountDialog({seed, open, setOpen, wallet, connectio
   const [amount, setAmount] = useState<string>('');
 
   useEffect(() => {
-    if (Number(amount) > (systemProgramAccountInfo?.lamports ?? 0) / LAMPORTS_PER_SAFE) {
-      setError('Insufficient SAFE balance');
+    if (Number(amount) > (systemProgramAccountInfo?.lamports ?? 0) / LAMPORTS_PER_PANO) {
+      setError('Insufficient PANO balance');
     }
     else {
       setError(null);
@@ -60,7 +60,7 @@ export function CreateStakeAccountDialog({seed, open, setOpen, wallet, connectio
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
-                SAFE
+                PANO
               </InputAdornment>
             ),
             inputProps: {
@@ -82,7 +82,7 @@ export function CreateStakeAccountDialog({seed, open, setOpen, wallet, connectio
               seed,
               StakeProgram.programId,
             );
-            const lamports = await connection.getMinimumBalanceForRentExemption(StakeProgram.space) + Number(amount) * LAMPORTS_PER_SAFE;
+            const lamports = await connection.getMinimumBalanceForRentExemption(StakeProgram.space) + Number(amount) * LAMPORTS_PER_PANO;
 
             const transaction = StakeProgram.createAccountWithSeed({
               fromPubkey: wallet.publicKey,
